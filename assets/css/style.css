@@ -152,6 +152,17 @@ header
         line-height: 1.3; /* 20.8px */
         margin-left: 32px;
     }
+    .nav__item a {
+        display: block;
+        padding: 10px 12px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+    }
+    .nav__item a:hover,
+    .nav__item a:focus-visible {
+        background-color: #005cac;
+        color: #fff;
+    }
     .nav__header {
         display: none;
     }
@@ -196,6 +207,7 @@ main
 .mainTopics__txt {
     font-size: 1.4rem; /* 14px */
     margin-top: 24px;
+    text-align: center;
 }
 
 /* article header pc */
@@ -218,7 +230,6 @@ main
         display: none;
     }
     .mainTopics__txt {
-        text-align: center;
         font-size: 1.6rem; /* 16px */
         line-height: 1.3;
         margin-top: 32px;
@@ -233,6 +244,8 @@ main
 }
 
 .lineUp__item {
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
 }
 
@@ -240,7 +253,22 @@ main
     margin-top: 32px;
 }
 
+.lineUp__img {
+    aspect-ratio: 1664 / 945;
+    overflow: hidden;
+}
+
+.lineUp__img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .lineUp__content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
     background-color: #fff;
     padding: 16px;
     border-radius: 0 0 8px 8px;
@@ -254,6 +282,7 @@ main
 .lineUp__category {
     background-color: #FFF8E0;
     display: inline-block;
+    align-self: flex-start;
     padding: 4px 16px;
     color: #005cac;
     font-size: 1.6rem; /* 16px */
@@ -283,8 +312,13 @@ main
         gap: 20px;
     }
     .lineUp__item {
+        flex: 1 1 0;
+        min-width: 0;
         max-width: 300px;
         margin-top: 32px;
+    }
+    .lineUp__content .btn {
+        margin-top: auto;
     }
     /* .lineUp__item:first-of-type {
         margin-top: 0;
@@ -367,7 +401,7 @@ main
     padding: 24px 6.4% 0;
 }
 
-.directions__item:last-of-type {
+.directions__item + .directions__item {
     margin-top: 24px;
 }
 
@@ -407,9 +441,11 @@ main
         justify-content: space-between;
     }
     .directions__item {
-        width: 50%;
+        flex: 1;
+        min-width: 0;
+        width: auto;
     }
-    .directions__item:last-of-type {
+    .directions__item + .directions__item {
         margin-top: 0;
     }
     .directions__topic {
