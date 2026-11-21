@@ -58,7 +58,12 @@
                 <header class="article__header">
                     <p class="mainImg">
                         <img class="mainImg__sp" src="assets/images/main-sp.jpg" alt="キャンペーン">
-                        <img class="mainImg__pc" src="assets/images/main-pc.jpg" alt="キャンペーン">
+                        <span class="mainImg__pc" role="group" aria-label="メインビジュアルの画像スライダー">
+                            <img class="mainImg__slide is-active" src="assets/images/main-pc.jpg" alt="キャンペーン">
+                            <img class="mainImg__slide" src="assets/images/main-pc_02.jpg" alt="キャンペーン" aria-hidden="true">
+                            <button class="mainImg__arrow mainImg__arrow--prev" type="button" aria-label="前の画像"></button>
+                            <button class="mainImg__arrow mainImg__arrow--next" type="button" aria-label="次の画像"></button>
+                        </span>
                     </p>
                     <div class="mainTopics">
                         <h2 class="mainTopics__name">開校16周年記念キャンペーン</h2>
@@ -94,7 +99,7 @@
                                 <p class="lineUp__txt">GINZ中国語教室は、駅から近くお洒落な環境になり、アットホームのような教室です。 熱意を持つだけではなく、試験検定を教える経験が豊かな講師は多数在籍しています あなたの目標がGINZで必ず実現できます.</p>
                                 <div class="detail">
                                     <p class="detail__location">出身大学</p>
-                                    <p class="detail__txt">天津師範大学</p>
+                                    <p class="detail__txt">中国天津師範大学</p>
                                 </div>
                                 <a class="btn" href="#">MORE</a>
                             </div> <!-- lineUp__content -->

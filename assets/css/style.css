@@ -217,6 +217,79 @@ main
     }
     .mainImg .mainImg__pc {
         display: block;
+        position: relative;
+        width: 100%;
+        aspect-ratio: 2880 / 1030;
+        overflow: hidden;
+    }
+    .mainImg__slide {
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: translateX(100%);
+        transition: transform 0.8s ease;
+    }
+    .mainImg__slide.is-active {
+        z-index: 2;
+        transform: translateX(0);
+    }
+    .mainImg__slide.is-leaving {
+        z-index: 1;
+        transform: translateX(-100%);
+    }
+    .mainImg__slide.is-leaving-right {
+        z-index: 3;
+        transform: translateX(100%);
+    }
+    .mainImg__slide.is-entering-from-left {
+        z-index: 1;
+        transform: translateX(-100%);
+    }
+    .mainImg__arrow {
+        position: absolute;
+        z-index: 3;
+        top: 50%;
+        display: grid;
+        width: 48px;
+        height: 48px;
+        place-items: center;
+        border-radius: 50%;
+        background-color: rgba(0, 92, 172, 0.78);
+        color: #fff;
+        cursor: pointer;
+        transform: translateY(-50%);
+        transition: background-color 0.2s ease;
+    }
+    .mainImg__arrow:hover {
+        background-color: #005cac;
+    }
+    .mainImg__arrow:focus-visible {
+        outline: 3px solid #fff;
+        outline-offset: 3px;
+    }
+    .mainImg__arrow::before {
+        width: 12px;
+        height: 12px;
+        border-top: 2px solid currentColor;
+        border-right: 2px solid currentColor;
+        content: '';
+    }
+    .mainImg__arrow--prev {
+        left: 24px;
+    }
+    .mainImg__arrow--prev::before {
+        margin-left: 5px;
+        transform: rotate(-135deg);
+    }
+    .mainImg__arrow--next {
+        right: 24px;
+    }
+    .mainImg__arrow--next::before {
+        margin-right: 5px;
+        transform: rotate(45deg);
     }
     .mainTopics {
         max-width: 1280px;
@@ -233,6 +306,12 @@ main
         font-size: 1.6rem; /* 16px */
         line-height: 1.3;
         margin-top: 32px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .mainImg__slide {
+        transition: none;
     }
 }
 /*  pc 769px */
