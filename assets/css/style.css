@@ -222,31 +222,24 @@ main
         aspect-ratio: 2880 / 1030;
         overflow: hidden;
     }
+    .mainImg__track {
+        display: flex;
+        width: 400%;
+        height: 100%;
+        transform: translateX(-25%);
+        transition: transform 0.8s ease;
+    }
     .mainImg__slide {
         display: block;
-        position: absolute;
-        inset: 0;
+        flex: 0 0 25%;
+        width: 25%;
+        height: 100%;
+    }
+    .mainImg__slide img {
+        display: block;
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transform: translateX(100%);
-        transition: transform 0.8s ease;
-    }
-    .mainImg__slide.is-active {
-        z-index: 2;
-        transform: translateX(0);
-    }
-    .mainImg__slide.is-leaving {
-        z-index: 1;
-        transform: translateX(-100%);
-    }
-    .mainImg__slide.is-leaving-right {
-        z-index: 3;
-        transform: translateX(100%);
-    }
-    .mainImg__slide.is-entering-from-left {
-        z-index: 1;
-        transform: translateX(-100%);
     }
     .mainImg__arrow {
         position: absolute;
@@ -257,17 +250,17 @@ main
         height: 48px;
         place-items: center;
         border-radius: 50%;
-        background-color: rgba(0, 92, 172, 0.78);
-        color: #fff;
+        background-color: rgba(255, 255, 255, 0.78);
+        color: #005cac;
         cursor: pointer;
         transform: translateY(-50%);
         transition: background-color 0.2s ease;
     }
     .mainImg__arrow:hover {
-        background-color: #005cac;
+        background-color: rgba(255, 255, 255, 0.95);
     }
     .mainImg__arrow:focus-visible {
-        outline: 3px solid #fff;
+        outline: 3px solid #005cac;
         outline-offset: 3px;
     }
     .mainImg__arrow::before {
@@ -310,7 +303,7 @@ main
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .mainImg__slide {
+    .mainImg__track {
         transition: none;
     }
 }
@@ -396,6 +389,9 @@ main
         max-width: 300px;
         margin-top: 32px;
     }
+    .lineUp__content .detail {
+        margin-bottom: 16px;
+    }
     .lineUp__content .btn {
         margin-top: auto;
     }
@@ -415,7 +411,7 @@ main
 }
 
 .detail__txt {
-    margin-top: 16px;
+    margin-top: 8px;
 }
 
 .btn {
